@@ -1,0 +1,33 @@
+.App{
+  background-color:  #222222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header{
+  width: 100%;
+  height: 100vh;
+  background-image: url(./assets/image1.png);
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logo{
+  width: 33%;
+  height: 290px;
+  position: relative;
+  top: 90px;
+  display: flex;
+}
+
+.logo img{ 
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
