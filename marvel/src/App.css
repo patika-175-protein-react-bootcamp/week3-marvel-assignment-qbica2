@@ -75,7 +75,7 @@
   top: -20px;
 }
 
-footer{
+.footer{
   width: 1200px;
   font-family: 'Roboto', sans-serif;
   display: flex;
@@ -106,4 +106,41 @@ footer{
   background-color:#7E7E7E ;
   color:#222222;
   cursor: pointer;
+}
+
+@media  screen and (max-width: 1200px) {
+  .header .logo{
+          position: relative;
+          top: 100px;
+      }
+}
+@media  screen and (max-width: 1200px) {
+  .cards{
+      width: 850px;
+      margin-top: 100px;
+  }
+}
+
+@media  screen and (max-width: 992px) {
+  .cards{
+      width: 600px;
+  }
+}
+
+@media  screen and (max-width: 768px) {
+  .cards{
+      width: 400px;
+  }
+}
+
+@media  screen and (max-width: 992px) {
+  .footer{
+      width: 100%;
+  }
+}
+
+@media  screen and (max-width: 680px) {
+  .pagination{
+    width: 100%;
+  }
 }

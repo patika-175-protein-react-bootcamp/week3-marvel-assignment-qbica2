@@ -7,7 +7,7 @@ function App() {
   const API_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
   const HASH = process.env.REACT_APP_MARVEL_HASH;
   const [cards,setCards]= useState([]);
-  const [pages,setPages] = useState(1);
+  const [pages,setPages] = useState(sessionStorage.getItem("currentPage") || 1);
   const [totalPages,setTotalPages] = useState(10);
 
   useEffect(() => {
@@ -49,11 +49,13 @@ function App() {
 
   return (
     <div className="App">
+
       <div className="header">
         <div className="logo">
           <img src="./image2.png" alt="logo" /> 
         </div>
       </div>
+
       <div className="cards">
         {
           cards.map(card=>(
@@ -64,6 +66,7 @@ function App() {
           ))
         }
       </div>
+      
       <div className="footer">
         {
           pages<=4 && (<div className="pagination">
