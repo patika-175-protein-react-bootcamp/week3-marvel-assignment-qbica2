@@ -74,3 +74,36 @@
   position: relative;
   top: -20px;
 }
+
+footer{
+  width: 1200px;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.pagination{
+  height: 72px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.pagination button{
+  width: 72px;
+  height: 48px;
+  background-color:  #222222;
+  border: none;
+  border-radius: 30px;
+  color: #7E7E7E;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 23.44px;
+  letter-spacing:0.15px;
+  text-align: center;
+}
+.pagination button:hover{
+  background-color:#7E7E7E ;
+  color:#222222;
+  cursor: pointer;
+}
