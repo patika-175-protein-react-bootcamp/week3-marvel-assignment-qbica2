@@ -1,14 +1,17 @@
-/* eslint-disable no-undef */
 import React, { useState,useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import Loading from "./Loading";
 
 function App() {
+  // eslint-disable-next-line no-undef
   const API_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
+  // eslint-disable-next-line no-undef
   const HASH = process.env.REACT_APP_MARVEL_HASH;
   const [cards,setCards]= useState([]);
   const [pages,setPages] = useState(sessionStorage.getItem("currentPage") || 1);
   const [totalPages,setTotalPages] = useState(10);
+  const [loading,setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,12 +26,14 @@ function App() {
         setCards(JSON.parse(fetchedPages));
         setTotalPages(sessionStorage.getItem("totalPages"));
       }else{
+        setLoading(true);
         const res= await axios(`https://gateway.marvel.com/v1/public/characters?apikey=${API_KEY}&hash=${HASH}&ts=1&offset=${(pages-1)*20}`);
         setCards(res.data.data.results);
         setTotalPages(res.data.data.total/20);
         sessionStorage.setItem(`page:${pages}`, JSON.stringify(res.data.data.results));
         sessionStorage.setItem("totalPages", res.data.data.total/20);
       }
+      setLoading(false);
     };
     getData();
     sessionStorage.setItem("currentPage", pages);
@@ -58,12 +63,13 @@ function App() {
 
       <div className="cards">
         {
-          cards.map(card=>(
-            <div className="card" key={card.id}>
-              <img  src={`${card.thumbnail.path}/portrait_incredible.${card.thumbnail.extension}`} alt={card.name} />
-              <div className="title">{card.name}</div>
-            </div>
-          ))
+          loading ? <Loading /> :
+            cards.map(card=>(
+              <div className="card" key={card.id}>
+                <img  src={`${card.thumbnail.path}/portrait_incredible.${card.thumbnail.extension}`} alt={card.name} />
+                <div className="title">{card.name}</div>
+              </div>
+            ))
         }
       </div>
       
