@@ -31,3 +31,46 @@
   height: 100%;
   object-fit: contain;
 }
+
+.cards{
+  margin-top: 200px;
+  width: 1200px;
+  height: auto;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  align-content: space-around;
+}
+
+.card{
+  width:252px;
+  height:369px;
+  margin: 45px 10px;
+  padding: 10px;
+  outline-offset: 5px;
+  outline: #ffffff solid 1px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card img{ 
+  position: relative;
+  top: -50px;
+  padding-top: 10px;
+  border-top: 1px solid #ffffff;
+  box-shadow: 0px 4px 4px 0px #00000040;
+ 
+}
+
+.card .title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.09px;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  top: -20px;
+}
