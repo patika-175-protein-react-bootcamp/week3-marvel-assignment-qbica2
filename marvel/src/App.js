@@ -75,19 +75,40 @@ function App() {
       
       <div className="footer">
         {
-          pages<=4 && (<div className="pagination">
-            {
-              pages!=1 && (<button onClick={()=>handlePrevPageChange()}>Prev</button>)
-            }
-            <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
-            <button onClick={(e)=>handlePageChange(e)} value={2}>2</button>
-            <button onClick={(e)=>handlePageChange(e)} value={3}>3</button>
-            <button onClick={(e)=>handlePageChange(e)} value={4}>4</button>
-            <button onClick={(e)=>handlePageChange(e)} value={5}>5</button>
-            <button>...</button>
-            <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
-            <button onClick={()=>handleNextPageChange()}>Next</button>
-          </div>
+          pages<=4 && (
+            <div className="pagination">
+              {
+                pages!=1 && (<button onClick={()=>handlePrevPageChange()}>Prev</button>)
+              }
+              <button
+                className={pages==1 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={1}>
+                  1
+              </button>
+              <button
+                className={pages==2 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={2}>
+                  2
+              </button>
+              <button 
+                className={pages==3 && "active"}
+                onClick={(e)=>handlePageChange(e)} value={3}>
+                  3
+              </button>
+              <button 
+                className={pages==4 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={4}>
+                  4
+              </button>
+              <button 
+                className={pages==5 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={5}>
+                  5
+              </button>
+              <button>...</button>
+              <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
+              <button onClick={()=>handleNextPageChange()}>Next</button>
+            </div>
           )
         }
         {
@@ -96,9 +117,19 @@ function App() {
               <button onClick={()=>handlePrevPageChange()}>Prev</button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(pages)-1}>{Number(pages)-1}</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(pages)}>{Number(pages)}</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(pages)+1}>{Number(pages)+1}</button>
+              <button 
+                onClick={(e)=>handlePageChange(e)} value={Number(pages)-1}>
+                {Number(pages)-1}
+              </button>
+              <button 
+                className="active" 
+                onClick={(e)=>handlePageChange(e)} value={Number(pages)}>
+                {Number(pages)}
+              </button>
+              <button 
+                onClick={(e)=>handlePageChange(e)} value={Number(pages)+1}>
+                {Number(pages)+1}
+              </button>
               <button>...</button>
               <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
               <button onClick={()=>handleNextPageChange()}>Next</button>
@@ -111,11 +142,31 @@ function App() {
               <button onClick={()=>handlePrevPageChange()}>Prev</button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-4}>{Number(totalPages)-4}</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-3}>{Number(totalPages)-3}</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-2}>{Number(totalPages)-2}</button>
-              <button onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-1}>{Number(totalPages)-1}</button>
-              <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
+              <button 
+                className={pages==Number(totalPages)-4 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-4}>
+                {Number(totalPages)-4}
+              </button>
+              <button 
+                className={pages==Number(totalPages)-3 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-3}>
+                {Number(totalPages)-3}
+              </button>
+              <button 
+                className={pages==Number(totalPages)-2 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-2}>
+                {Number(totalPages)-2}
+              </button>
+              <button 
+                className={pages==Number(totalPages)-1 && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-1}>
+                {Number(totalPages)-1}
+              </button>
+              <button 
+                className={pages==totalPages && "active"} 
+                onClick={(e)=>handlePageChange(e)} value={totalPages}>
+                {totalPages}
+              </button>
               {
                 pages!=totalPages && (<button onClick={()=>handleNextPageChange()}>Next</button>)
               }
