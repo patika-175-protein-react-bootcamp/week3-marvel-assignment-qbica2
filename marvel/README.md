@@ -26,18 +26,18 @@
 
 ## İsterler
 
-<input type="checkbox" checked>Girdiğimiz her sayfa session storage ya da local storage a kayıt edilmeli</input>
+- [X] Girdiğimiz her sayfa session storage ya da local storage a kayıt edilmeli
 <br>
-<input type="checkbox" checked>Daha önce girdiğimiz sayfalara tekrar girmek istediğimizde api a istek atmak yerine storagetan veri alınmalı</input>
+- [X] Daha önce girdiğimiz sayfalara tekrar girmek istediğimizde api a istek atmak yerine storagetan veri alınmalı
 <br>
-<input type="checkbox" checked>Hangi sayfada olduğumuz paginationda belirtilmeli ve istediğimiz sayfa seçilebilmeli</input>
+- [X] Hangi sayfada olduğumuz paginationda belirtilmeli ve istediğimiz sayfa seçilebilmeli
 <br>
-<input type="checkbox" checked>Uygulama responsive olmalı</input>
+- [X] Uygulama responsive olmalı
 <br>
-<input type="checkbox" checked>Clean code anlayışına uygun yazılmalı</input>
+- [X] Clean code anlayışına uygun yazılmalı
 <br>
-<input type="checkbox" checked>Eslint ile belirlenen standartlara uygun kodlanmalı(opsiyonel)</input>
+- [X] Eslint ile belirlenen standartlara uygun kodlanmalı(opsiyonel)
 <br>
-<input type="checkbox" checked>Veri çekilirken kullanıcıya loading ekranı gösterilmeli(opsiyonel)</input>
+- [X] Veri çekilirken kullanıcıya loading ekranı gösterilmeli(opsiyonel)
 <br>
-<input type="checkbox" checked>Sayfa yenilendiğinde kaldığı sayfadan devam etmeli(opsiyonel)</input>
+- [X] Sayfa yenilendiğinde kaldığı sayfadan devam etmeli(opsiyonel)
