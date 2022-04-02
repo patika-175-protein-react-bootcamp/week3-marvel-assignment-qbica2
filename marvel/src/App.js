@@ -79,7 +79,7 @@ function App() {
           pages<=4 && (
             <div className="pagination">
               {
-                pages!=1 && (<button onClick={()=>handlePrevPage()}>Prev</button>)
+                pages!=1 && (<button onClick={()=>handlePrevPage()}><i className="fa-solid fa-xl fa-angle-left"></i></button>)
               }
               {
                 [...Array(5).keys()].map(x=>{
@@ -94,14 +94,14 @@ function App() {
               }
               <button>...</button>
               <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
-              <button onClick={handleNextPage}>Next</button>
+              <button onClick={handleNextPage}><i className="fa-solid fa-xl fa-angle-right"></i></button>
             </div>
           )
         }
         {
           pages>4 && pages<=totalPages-4 && (
             <div className="pagination">
-              <button onClick={handlePrevPage}>Prev</button>
+              <button onClick={handlePrevPage}><i className="fa-solid fa-xl fa-angle-left"></i></button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
               <button 
@@ -119,14 +119,14 @@ function App() {
               </button>
               <button>...</button>
               <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
-              <button onClick={handleNextPage}>Next</button>
+              <button onClick={handleNextPage}><i className="fa-solid fa-xl fa-angle-right"></i></button>
             </div>
           )
         }
         {
           pages>totalPages-4 && (
             <div className="pagination">
-              <button onClick={handlePrevPage}>Prev</button>
+              <button onClick={handlePrevPage}><i className="fa-solid fa-xl fa-angle-left"></i></button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
               {
@@ -141,7 +141,7 @@ function App() {
                 })
               }
               {
-                pages!=totalPages && (<button onClick={handleNextPage}>Next</button>)
+                pages!=totalPages && (<button onClick={handleNextPage}><i className="fa-solid fa-xl fa-angle-right"></i></button>)
               }
             </div>
           )
