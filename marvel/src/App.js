@@ -14,7 +14,7 @@ function App() {
   const [totalPages,setTotalPages] = useState(sessionStorage.getItem("totalPages") || 10);
   const [loading,setLoading] = useState(false);
 
-  // Sayfa her değiştiğinde o sayfanın verilerini daha önce session storage a kayıt edip etmediğimizi kontrol ediyoruz. Eğer varsa verileri storegatan alıyoruz. Yoksa apidan çekip storage a kayıt ediyoruz.
+  // Sayfa her değiştiğinde o sayfanın verilerini daha önce session storage a kayıt edip etmediğimizi kontrol ediyoruz. Eğer kayıt edilmişse verileri storagetan alıyoruz. Yoksa apidan çekip storage a kayıt ediyoruz.
   useEffect(()=>{
     const getData= async ()=>{
       const fetchedPages= sessionStorage.getItem(`page:${pages}`);
