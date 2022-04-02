@@ -27,17 +27,17 @@
 ## İsterler
 
 - [X] Girdiğimiz her sayfa session storage ya da local storage a kayıt edilmeli
-<br>
+
 - [X] Daha önce girdiğimiz sayfalara tekrar girmek istediğimizde api a istek atmak yerine storagetan veri alınmalı
-<br>
+
 - [X] Hangi sayfada olduğumuz paginationda belirtilmeli ve istediğimiz sayfa seçilebilmeli
-<br>
+
 - [X] Uygulama responsive olmalı
-<br>
+
 - [X] Clean code anlayışına uygun yazılmalı
-<br>
+
 - [X] Eslint ile belirlenen standartlara uygun kodlanmalı(opsiyonel)
-<br>
+
 - [X] Veri çekilirken kullanıcıya loading ekranı gösterilmeli(opsiyonel)
-<br>
+
 - [X] Sayfa yenilendiğinde kaldığı sayfadan devam etmeli(opsiyonel)
