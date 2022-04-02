@@ -31,7 +31,7 @@
   height: 100%;
   object-fit: contain;
 }
-
+ /******* Cards *********/
 .cards{
   margin-top: 200px;
   width: 1200px;
@@ -74,7 +74,7 @@
   position: relative;
   top: -20px;
 }
-
+/* Pagination & Footer */
 .footer{
   width: 1200px;
   font-family: 'Roboto', sans-serif;

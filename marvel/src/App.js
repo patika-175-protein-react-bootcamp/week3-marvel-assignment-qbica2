@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState , useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import Loading from "./Loading";
@@ -8,17 +8,13 @@ function App() {
   const API_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
   // eslint-disable-next-line no-undef
   const HASH = process.env.REACT_APP_MARVEL_HASH;
+  // State tanımlarımız( sayfa yenilendiğinde session storageda istediğimiz veriler varsa onları alıyoruz )
   const [cards,setCards]= useState([]);
   const [pages,setPages] = useState(sessionStorage.getItem("currentPage") || 1);
   const [totalPages,setTotalPages] = useState(sessionStorage.getItem("totalPages") || 10);
   const [loading,setLoading] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
-  }, []);
-
+  // Sayfa her değiştiğinde o sayfanın verilerini daha önce session storage a kayıt edip etmediğimizi kontrol ediyoruz. Eğer varsa verileri storegatan alıyoruz. Yoksa apidan çekip storage a kayıt ediyoruz.
   useEffect(()=>{
     const getData= async ()=>{
       const fetchedPages= sessionStorage.getItem(`page:${pages}`);
@@ -40,18 +36,19 @@ function App() {
     window.scrollTo(0, 500);
   },[pages]);
 
+  // Sayfalar arasında gezmemizi sağlayan fonksiyonlar
   const handlePageChange = (e)=>{
     setPages(e.target.value);
   };
 
-  const handlePrevPageChange = ()=>{
+  const handlePrevPage = ()=>{
     setPages(Number(pages)-1);
   };
 
-  const handleNextPageChange = ()=>{
+  const handleNextPage = ()=>{
     setPages(Number(pages)+1);
   };
-
+  // Card names de kullanacağımız standart sağlaması için yazdığım fonksiyon
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
@@ -82,13 +79,13 @@ function App() {
           pages<=4 && (
             <div className="pagination">
               {
-                pages!=1 && (<button onClick={()=>handlePrevPageChange()}>Prev</button>)
+                pages!=1 && (<button onClick={()=>handlePrevPage()}>Prev</button>)
               }
               {
                 [...Array(5).keys()].map(x=>{
                   return (
                     <button 
-                      key={x} className={pages==x+1 && "active"}
+                      key={x} className={pages==x+1 ? "active" : ""}
                       onClick={(e)=>handlePageChange(e)} value={x+1}>
                       {x+1}
                     </button>
@@ -97,14 +94,14 @@ function App() {
               }
               <button>...</button>
               <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
-              <button onClick={()=>handleNextPageChange()}>Next</button>
+              <button onClick={handleNextPage}>Next</button>
             </div>
           )
         }
         {
           pages>4 && pages<=totalPages-4 && (
             <div className="pagination">
-              <button onClick={()=>handlePrevPageChange()}>Prev</button>
+              <button onClick={handlePrevPage}>Prev</button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
               <button 
@@ -122,21 +119,21 @@ function App() {
               </button>
               <button>...</button>
               <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
-              <button onClick={()=>handleNextPageChange()}>Next</button>
+              <button onClick={handleNextPage}>Next</button>
             </div>
           )
         }
         {
           pages>totalPages-4 && (
             <div className="pagination">
-              <button onClick={()=>handlePrevPageChange()}>Prev</button>
+              <button onClick={handlePrevPage}>Prev</button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
               {
                 [...Array(5).keys()].reverse().map(x=>{
                   return (
                     <button 
-                      key={x} className={pages==Number(totalPages)-x && "active"}
+                      key={x} className={pages==Number(totalPages)-x ? "active" : ""}
                       onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-x}>
                       {Number(totalPages)-x}
                     </button>
@@ -144,7 +141,7 @@ function App() {
                 })
               }
               {
-                pages!=totalPages && (<button onClick={()=>handleNextPageChange()}>Next</button>)
+                pages!=totalPages && (<button onClick={handleNextPage}>Next</button>)
               }
             </div>
           )
