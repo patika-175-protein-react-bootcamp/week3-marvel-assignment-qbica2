@@ -84,31 +84,17 @@ function App() {
               {
                 pages!=1 && (<button onClick={()=>handlePrevPageChange()}>Prev</button>)
               }
-              <button
-                className={pages==1 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={1}>
-                  1
-              </button>
-              <button
-                className={pages==2 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={2}>
-                  2
-              </button>
-              <button 
-                className={pages==3 && "active"}
-                onClick={(e)=>handlePageChange(e)} value={3}>
-                  3
-              </button>
-              <button 
-                className={pages==4 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={4}>
-                  4
-              </button>
-              <button 
-                className={pages==5 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={5}>
-                  5
-              </button>
+              {
+                [...Array(5).keys()].map(x=>{
+                  return (
+                    <button 
+                      key={x} className={pages==x+1 && "active"}
+                      onClick={(e)=>handlePageChange(e)} value={x+1}>
+                      {x+1}
+                    </button>
+                  );
+                })
+              }
               <button>...</button>
               <button onClick={(e)=>handlePageChange(e)} value={totalPages}>{totalPages}</button>
               <button onClick={()=>handleNextPageChange()}>Next</button>
@@ -146,31 +132,17 @@ function App() {
               <button onClick={()=>handlePrevPageChange()}>Prev</button>
               <button onClick={(e)=>handlePageChange(e)} value={1}>1</button>
               <button>...</button>
-              <button 
-                className={pages==Number(totalPages)-4 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-4}>
-                {Number(totalPages)-4}
-              </button>
-              <button 
-                className={pages==Number(totalPages)-3 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-3}>
-                {Number(totalPages)-3}
-              </button>
-              <button 
-                className={pages==Number(totalPages)-2 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-2}>
-                {Number(totalPages)-2}
-              </button>
-              <button 
-                className={pages==Number(totalPages)-1 && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-1}>
-                {Number(totalPages)-1}
-              </button>
-              <button 
-                className={pages==totalPages && "active"} 
-                onClick={(e)=>handlePageChange(e)} value={totalPages}>
-                {totalPages}
-              </button>
+              {
+                [...Array(5).keys()].reverse().map(x=>{
+                  return (
+                    <button 
+                      key={x} className={pages==Number(totalPages)-x && "active"}
+                      onClick={(e)=>handlePageChange(e)} value={Number(totalPages)-x}>
+                      {Number(totalPages)-x}
+                    </button>
+                  );
+                })
+              }
               {
                 pages!=totalPages && (<button onClick={()=>handleNextPageChange()}>Next</button>)
               }
