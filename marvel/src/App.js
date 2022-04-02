@@ -10,7 +10,7 @@ function App() {
   const HASH = process.env.REACT_APP_MARVEL_HASH;
   const [cards,setCards]= useState([]);
   const [pages,setPages] = useState(sessionStorage.getItem("currentPage") || 1);
-  const [totalPages,setTotalPages] = useState(10);
+  const [totalPages,setTotalPages] = useState(sessionStorage.getItem("totalPages") || 10);
   const [loading,setLoading] = useState(false);
 
   useEffect(() => {
@@ -52,6 +52,10 @@ function App() {
     setPages(Number(pages)+1);
   };
 
+  const truncate = (str, n) => {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  };
+
   return (
     <div className="App">
 
@@ -67,7 +71,7 @@ function App() {
             cards.map(card=>(
               <div className="card" key={card.id}>
                 <img  src={`${card.thumbnail.path}/portrait_incredible.${card.thumbnail.extension}`} alt={card.name} />
-                <div className="title">{card.name}</div>
+                <div className="title">{truncate(card.name,25)}</div>
               </div>
             ))
         }
